@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medica_history', function (Blueprint $table) {
+        Schema::create('medical_history', function (Blueprint $table) {
             $table->id();
             $table->foreignId('patient_id')->constrained('patients');
             $table->string('illness');

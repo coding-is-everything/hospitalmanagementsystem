@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('beds', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('room_id')->constrained('rooms');
+            $table->string('bed_number');
+            $table->string('availability_status', 50);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('beds');
     }
 };

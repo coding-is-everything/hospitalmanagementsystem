@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('lab_tests', function (Blueprint $table) {
+            $table->id();
+            $table->string('test_name');
+            $table->text('description')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('lab_tests');
     }
 };

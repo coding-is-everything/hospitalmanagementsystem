@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('shifts', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('staff_id')->constrained('staff');
+            $table->dateTime('shift_start');
+            $table->dateTime('shift_end');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('shifts');
     }
 };
